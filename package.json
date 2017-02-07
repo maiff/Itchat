@@ -9,11 +9,7 @@
   "author": "maiff",
   "license": "MIT",
   "dependencies": {
-    "jpeg-js": "^0.2.0",
-    "mocha": "^3.2.0",
-    "picture-tube": "^1.0.0",
     "qrcode-terminal": "^0.11.0",
-    "superagent": "^3.4.1",
-    "term-img": "^1.0.0"
+    "superagent": "^3.4.1"
   }
 }
