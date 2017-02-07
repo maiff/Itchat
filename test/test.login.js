@@ -14,7 +14,7 @@ describe('login', function () {
   it('login', function (done) {
     test.on('login', (err, status) => {
       // console.log(uuid)
-      assert.equal('string', typeof status)
+      assert.equal('object', typeof status)
       done(err)
     })
   })  
