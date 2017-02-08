@@ -1,6 +1,6 @@
-const Itchat = require('./index')
+const Itchat = require('../index')
 const request = require('superagent')
-let sendMesg = require('./lib/sendMesg')
+let sendMesg = require('../lib/sendMesg')
 const KEY = '8edce3ce905a4c1dbb965e6b35c3834d'
 // const URL = require('url').URL
 let apiUrl = 'http://www.tuling123.com/openapi/api'
