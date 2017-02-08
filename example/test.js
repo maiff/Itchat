@@ -1,6 +1,6 @@
 const Itchat = require('../index')
 const request = require('superagent')
-let sendMesg = require('../lib/sendMesg')
+
 const KEY = '8edce3ce905a4c1dbb965e6b35c3834d'
 // const URL = require('url').URL
 let apiUrl = 'http://www.tuling123.com/openapi/api'
@@ -25,7 +25,7 @@ test.on('getMesg', (err, objList, content, from) => {
     .end((err, res) => {
       err && console.log(err)
       let obj = JSON.parse(res.text)
-      sendMesg({
+      test.sendMesg({
         content: obj.text,
         ToUserName: from
       })

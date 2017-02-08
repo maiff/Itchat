@@ -10,8 +10,10 @@ const syncCheck = require('./lib/syncCheck')
 const getMesg = require('./lib/getMesg')
 let globalVal = require('./lib/global')
 
+let sendMesg = require('./lib/sendMesg')
+
 let logger = require('./lib/log')
-module.exports = class Itchat extends EventEmitter {
+class Itchat extends EventEmitter {
   run (options) {
     options && options.debug && logger.setLevel('debug')
     getUuid((err, uuid) => {
@@ -102,4 +104,5 @@ module.exports = class Itchat extends EventEmitter {
   }
 }
 
-
+Itchat.prototype.sendMesg = sendMesg
+module.exports = Itchat

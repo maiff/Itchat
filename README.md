@@ -25,5 +25,5 @@ npm install && npm run example
 
 其他详情请见[文档]()
 
-项目正在编写中欢迎pr。
+项目正在编写中欢迎pr。如果star多我就写一个web wechat的最新抓包教程。
 
