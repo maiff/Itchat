@@ -23,7 +23,7 @@ npm install && npm run example
 ```
 扫码你就能体验一个基于图灵机器人的微信机器人（详情代码见example/test.js）
 
-其他详情请见[文档]()
+其他详情请见[文档](https://github.com/maiff/Itchat/blob/master/doc/API.md)
 
 项目正在编写中欢迎pr。如果star多我就写一个web wechat的最新抓包教程。
 
