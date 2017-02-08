@@ -1,5 +1,5 @@
-# Itcaht
-Itcaht的nodejs版本
+# Itchat
+Itchat的nodejs版本
 
 ## 基于： 
 - [WeixinBot](https://github.com/Urinx/WeixinBot/blob/master)
@@ -12,7 +12,7 @@ npm install itchat --save
 ```
 当然你可以选择克隆本项目
 ```
-git clone https://github.com/maiff/Itcaht.git
+git clone https://github.com/maiff/Itchat.git
 ```
 
 ## 简单实例入门
