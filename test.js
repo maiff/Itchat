@@ -7,26 +7,31 @@ let apiUrl = 'http://www.tuling123.com/openapi/api'
 
 // let baseUrlObj = new URL('https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxnewloginpage')
 let test = new Itchat()
-test.run()
+test.run({debug: true})
 
-test.on('getMesg', (err, obj, content, from) => {
+test.on('getMesg', (err, objList, content, from) => {
   err && console.log(err)
   // console.log(obj)
-  let data = {
-    'key': KEY,
-    'info': content,
-    'userid': 'wechat-robot'
-  }
+  console.log('you have message')
+  if (objList[0].MsgType === 1) {
+    let data = {
+      'key': KEY,
+      'info': content,
+      'userid': 'wechat-robot'
+    }
 
-  request.post(apiUrl)
-  .send(data)
-  .end((err, res) => {
-    let obj = JSON.parse(res.text)
-    sendMesg({
-      content: obj.text,
-      ToUserName: from
+    request.post(apiUrl)
+    .send(data)
+    .end((err, res) => {
+      err && console.log(err)
+      let obj = JSON.parse(res.text)
+      sendMesg({
+        content: obj.text,
+        ToUserName: from
+      })
     })
-  })
+  }
+  
   // let text = obj.text
   // // let uuid = obj.uuid
   // let redirectUri = text.match(/\"(.+)\"/)[1]
