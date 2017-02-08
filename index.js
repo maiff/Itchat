@@ -103,6 +103,6 @@ class Itchat extends EventEmitter {
     })
   }
 }
-
+Itchat.globalVal = globalVal
 Itchat.prototype.sendMesg = sendMesg
 module.exports = Itchat

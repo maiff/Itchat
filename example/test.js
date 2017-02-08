@@ -11,7 +11,7 @@ test.run({debug: true})
 
 test.on('getMesg', (err, objList, content, from) => {
   err && console.log(err)
-  // console.log(obj)
+  // console.log(test.globalVal)
   console.log('you have message')
   if (objList[0].MsgType === 1) {
     let data = {
