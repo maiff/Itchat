@@ -4,7 +4,7 @@ Itchat的nodejs版本
 ## 基于： 
 - [WeixinBot](https://github.com/Urinx/WeixinBot/blob/master)
 - [itchat](https://github.com/littlecodersh/ItChat)
-
+- [网页微信抓包教程](https://github.com/maiff/Itchat/blob/master/doc/%E6%95%99%E7%A8%8B.md)
 ## 安装：
 你可以从npm上下载
 ```
