@@ -8,7 +8,11 @@ const notify = require('./lib/notify')
 const getContact = require('./lib/getContact')
 const syncCheck = require('./lib/syncCheck')
 const getMesg = require('./lib/getMesg')
+const checkLogin = require('./lib/checkLogin')
+const getGlobal = require('./lib/getGlobal')
+const merge = require('./lib/merge')
 let globalVal = require('./lib/global')
+
 
 let sendMesg = require('./lib/sendMesg')
 
@@ -16,8 +20,32 @@ let logger = require('./lib/log')
 class Itchat extends EventEmitter {
   run (options) {
     options && options.debug && logger.setLevel('debug')
-    getUuid((err, uuid) => {
-      this.emit('getUuid', err, uuid)
+    getGlobal((err, gv) => {
+      // err && logger.error(err)
+      if (gv !== '') {
+        merge(globalVal, JSON.parse(gv.toString()))
+        this.emit('checkLogin', err, gv)
+      } else {
+        this.emit('start', err)
+      }
+    })
+
+    this.on('checkLogin', (err, gv) => {
+      err && logger.error(err)
+      checkLogin((err, isLogin) => {
+        if (isLogin) {
+          console.log('login success')
+          this.emit('syncCheck', err)
+          this.emit('loginSuccess', err)
+        } else {
+          this.emit('start', err)
+        }
+      })
+    })
+    this.on('start', (err) => {
+      getUuid((err, uuid) => {
+        this.emit('getUuid', err, uuid)
+      })
     })
 
     this.on('getUuid', (err, uuid) => {
@@ -81,6 +109,7 @@ class Itchat extends EventEmitter {
       getMesg((err, res) => { // setSyncKey
         console.log('login success')
         this.emit('syncCheck', err)
+        this.emit('loginSuccess', err)
       })
     })
 
