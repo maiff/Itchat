@@ -8,7 +8,7 @@ module.exports = function () {
       merge(globalVal, JSON.parse(gv.toString()))
       this.emit('checkLogin', err, gv)
     } else {
-      this.emit('start', err)
+      process.nextTick(() => this.emit('start', err))
     }
   })
 }
